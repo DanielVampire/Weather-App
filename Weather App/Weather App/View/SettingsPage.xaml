@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Weather_App.View.SettingsPage"
+             Title="Настройки"
+             IconImageSource="../Resources/drawable/Settings.png"
+             BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <Grid Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+            
+            <xct:MediaElement x:Name="videoView" 
+                          Source="{Binding CurrentWeather.WeatherVideo}" 
+                              Grid.ColumnSpan="3" 
+                          ShowsPlaybackControls="False" 
+                          IsLooping="True" 
+                          Aspect="AspectFill" 
+                          AutoPlay="True" 
+                          HorizontalOptions="FillAndExpand"
+                          VerticalOptions="FillAndExpand"/>
+            <Label Text="Тема" TextColor="{AppThemeBinding Dark=White, Light=Black}" HorizontalOptions="Start" VerticalOptions="Start" Grid.Column="0"/>
+            <RadioButton x:Name="DarkTheme" TextColor="{AppThemeBinding Dark=White, Light=Black}" CheckedChanged="DarkTheme_CheckedChanged" Grid.Column="1" Content="Темная" VerticalOptions="Start" HorizontalOptions="End"/>
+            <RadioButton x:Name="LightTheme" TextColor="{AppThemeBinding Dark=White, Light=Black}" CheckedChanged="LightTheme_CheckedChanged" Grid.Column="2" Content="Светлая" VerticalOptions="Start" HorizontalOptions="End"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
